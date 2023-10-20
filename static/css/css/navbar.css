@@ -1,0 +1,61 @@
+
+:root {
+    /* colores */
+    --color_body_bg: #1a1e2a;
+    --color-side: #202431;
+    --color-main: #ababab;
+    --color_title: #ffffff;
+    --color_subitlle: #dcdcdc;
+    --color-text: #cccccc;
+    --color-icon: #ffffff;
+    --color_a_hover: #d3d3d3;
+    --color-font-footer: #bfbfbf;
+    --color-card-bg: #2d3244;
+}
+
+
+.contenedor {
+
+   
+   
+    width: 56px;
+    background-color: var(--color-side);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+
+}
+
+
+.icon {
+    font-size: 22px;
+    color: var(--color-icon);
+}
+
+.icon1 {
+    margin: 10px 0;
+}
+
+.nav1 {
+    background-color: var(--color-side);
+
+}
+
+.iconnav {
+    color: var(--color-icon);
+}
+
+.iconbrand {
+    font-size: 25px;
+    color: var(--color-icon);
+}
+
+.navcont {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 50px;
+}

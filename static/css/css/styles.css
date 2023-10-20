@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+   
+
+}
+
+
+
+.content{
+    height: calc(100vh - 63.5px);
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+.main{
+    
+    background-color:var(--color_body_bg);
+    width: 1536px;
+}
+
+.cardcont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /*align-content: space-around;*/
+    width: 1480px;
+    padding: 20px;
+    
+}
