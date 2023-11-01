@@ -3,14 +3,12 @@
 
         <div class="navcont">
             
-            <a class="navbar-brand iconbrand" href="{% url '' %}">JohnDash</a>
-           <!-- <a class="nav-link iconnav" href="{% url '' %}">Dashboard &nbsp; <i class="fa fa-home"
+            <a class="navbar-brand iconbrand" href="{% url 'index' %}">Hello  {{request.user}}</a>
+           
+            <a class="nav-link iconnav" href="{% url 'logout' %}">Sign out &nbsp; <i class="fa fa-sign-out"
                     aria-hidden="true"></i>
             </a>
-            <a class="nav-link iconnav" href="{% url '' %}">Sign out &nbsp; <i class="fa fa-sign-out"
-                    aria-hidden="true"></i>
-            </a>
-            -->
+            
 
         </div>
 
