@@ -1,18 +1,23 @@
 <nav class="navbar navbar-dark  nav1">
     <div class="container-fluid">
+                <div class="container">
+                
+                    {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                
+                </div>
 
         <div class="navcont">
             
-            <a class="navbar-brand iconbrand" href="{% url '' %}">JohnDash</a>
-           <!-- <a class="nav-link iconnav" href="{% url '' %}">Dashboard &nbsp; <i class="fa fa-home"
-                    aria-hidden="true"></i>
-            </a>
-            <a class="nav-link iconnav" href="{% url '' %}">Sign out &nbsp; <i class="fa fa-sign-out"
-                    aria-hidden="true"></i>
-            </a>
-            -->
-
+            <a class="navbar-brand iconbrand" href="{% url 'index' %}">Welcome back {{request.user}}</a>
+        
         </div>
+
+
 
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
@@ -30,7 +35,7 @@
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">To do list <i class="bi bi-check2-square"></i> </a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'task_list' %}">To do list <i class="bi bi-check2-square"></i> </a>
                     </li>
 
                     <li class="nav-item">

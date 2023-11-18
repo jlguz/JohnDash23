@@ -1,14 +1,15 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-    
+
+    {% if user.is_authenticated %}
     <div class="content">
         <aside class="contenedor">
-        
+    
             <a class="icon1" href="#">
                 <i class="bi bi-person-circle icon"></i>
             </a>
-            <a class="icon1" href="#" target="iframe1">
+            <a class="icon1" href="{% url 'index' %}">
                 <i class="bi bi-house-door icon"></i>
             </a>
             <a class="icon1" href="#" target="iframe1">
@@ -17,68 +18,67 @@
             <a class="icon1" href="#" target="iframe1">
                 <i class="bi bi-gear icon"></i>
             </a>
-        
-            <a class="icon1" href="#">
+    
+            <a class="icon1" href="{% url 'logout' %}">
                 <i class="bi bi-box-arrow-right icon"></i>
             </a>
-        
-        </aside>
-
-        <main> 
-            
-        <div class="cardcont">
-
-            <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Weather</div>
-                <div class="card-body text-secondary">
-                    <h5 class="card-title">Secondary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                </div>
-            </div>
-            
-            <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header bg-transparent border-success">News</div>
-                <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                </div>
-            </div>
-            
-            <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Lotery</div>
-                <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                </div>
-            </div>
-
-            <div class="card border-success mb-3" style="max-width: 18rem;">
-                <div class="card-header bg-transparent border-success">Header</div>
-                <div class="card-body text-success">
-                    <h5 class="card-title">Success card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                </div>
-                <div class="card-footer bg-transparent border-success">Footer</div>
-            </div>
-
-        </div>
-
-
-
-        </main>
-        
-    </div>
-
     
-
-
-        
-
-
-
-
+        </aside>
+    
+        <main>
+    
+            <div class="cardcont">
+    
+                <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Weather</div>
+                    <div class="card-body text-secondary">
+                        <h5 class="card-title">Secondary card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's
+                            content.</p>
+                    </div>
+                </div>
+    
+                <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header bg-transparent border-success">News</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's
+                            content.</p>
+                    </div>
+                </div>
+    
+                <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Lotery</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's
+                            content.</p>
+                    </div>
+                </div>
+    
+                <div class="card border-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header bg-transparent border-success">Header</div>
+                    <div class="card-body text-success">
+                        <h5 class="card-title">Success card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's
+                            content.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-success">Footer</div>
+                </div>
+    
+            </div>
+    
+        </main>
+    
+    </div>
+    {% else %}
+    <a class="icon1" href="{% url 'login' %}">
+        <i class="bi bi-box-arrow-right icon"></i>
+    {% endif %}
 {% endblock %}
+
+
