@@ -1,3 +1,7 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
 <h1>Login</h1>
 
 <form method="POST">
@@ -6,3 +10,7 @@
 
     <input type="submit" value="login" >
 </form>
+
+<p>Dont have an accout? <a href="{% url 'todo_register' %}">Register</a></p>
+
+{% endblock %}
