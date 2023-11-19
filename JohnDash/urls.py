@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('home.urls')),
     path('', include('todo.urls')),
     path('', include('users.urls')),
+    path('', include('crm.urls')),
 ]

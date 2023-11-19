@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home',
     'todo.apps.TodoConfig',
     'users.apps.UsersConfig',
+    'crm'
 ]
 
 MIDDLEWARE = [
