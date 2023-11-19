@@ -53,6 +53,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     /*align-content: space-around;*/
+    align-items: flex-start;
     width: 1480px;
     padding: 20px;
 

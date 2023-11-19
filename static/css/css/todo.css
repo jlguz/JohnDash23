@@ -1,11 +1,24 @@
-.contant{
+.app-wrapper {
     font-family: 'Nunito Sans', sans-serif;
-    width: 750px;
+    margin-top: 20px;
+    width: 600px;
     height: 600px;
-  
-    
-    background-color: greenyellow;
-    
+}
+
+.taskform-wrapper {
+    font-family: 'Nunito Sans', sans-serif;
+    margin-top: 20px;
+    width: 600px;
+    height: 600px;
+    background-color: white;
+}
+
+.delete-wrapper {
+    font-family: 'Nunito Sans', sans-serif;
+    margin-top: 20px;
+    width: 600px;
+    height: 200px;
+    background-color: white;
 }
 
 h1,
@@ -24,6 +37,7 @@ p {
 
 .header-bar {
     display: flex;
+    justify-content: space-between;
     color: #ffffff;
     padding: 10px;
     border-radius: 5px 5px 0 0;
@@ -36,12 +50,14 @@ p {
 }
 
 .task-wrapper {
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #fff;
     border-top: 1px solid #dfe4ea;
-    overflow: hidden;
+    overflow: scroll;
+    
 }
 
 .task-title {
@@ -73,24 +89,28 @@ p {
     text-decoration: none;
     font-weight: 900;
     color: #cf4949;
-    font-size: 22px;
+    font-size: 35px;
     line-height: 0;
-    padding: 20px 0px;
+    padding: 20px 22px;
 }
 
-#add-link {
-    color: #EB796F;
+.add-link {
+    color: antiquewhite;
     text-decoration: none;
-    font-size: 42px;
+    font-size: 35px;
     text-shadow: 1px 1px #81413b;
 }
 
-#search-add-wrapper {
+.search-add-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: blueviolet;
+    background-color: #EB796F;
+}
+
+.task-items-wrapper{
+    height: 410px;
 }
 
 input[type=text],

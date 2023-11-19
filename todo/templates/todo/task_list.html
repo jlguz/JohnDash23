@@ -2,58 +2,58 @@
 
 {% block content %}
 
-    <div class="contant overflow-auto">
+<div class="app-wrapper">
 
-            <div class="header-bar sticky-top">
-                    <div>
-                        <h1>Hello {{request.user|title}}</h1>
-                        <h3 style="margin:0">You have <i>{{count}}</i> incomplete task{{ count|pluralize:"s"}}</h3>
-                    </div>
-                
-                    {% if request.user.is_authenticated %}
-                    <!--<p>{{request.user}}</p>-->
-                    <a href="{% url 'logout' %}">Logout</a>
-                    {% else %}
-                    <a href="{% url 'login' %}">Login</a>
-                    {% endif %}
+    <div class="header-bar">
+            <div>
+                <h1>Hello {{request.user|title}}</h1>
+                <h3 style="margin:0">You have <i>{{count}}</i> incomplete task{{ count|pluralize:"s"}}</h3>
             </div>
-                
-            <div class="search-add-wrapper">
-                    <form action="" method="GET" style="margin-top: 20px; display: flex;">
-                        <input type="text" value="{{search_input}}" name="search-area">
-                        <input class="button" type="submit" value="Search">
-                    </form>
-                    <a id="add-link" href="{% url 'create_task' %}">&#x2b;</a>
-            </div>
-        
-
-        
-            <div class="task-items-wrapper">
-                {% for task in tasks %}
-                <div class="task-wrapper">
-                    {% if task.complete %}
-                    <div class="task-title">
-                        <div class="task-complete-icon"></div>
-                        <i><s><a href="{% url 'update_task' task.id %}">{{task}}</a></s></i>
-                    </div>
-                    <a class="delete-link" href="{% url 'delete_task' task.id %}">&#215;</a>
-                    {% else %}
-                    <div class="task-title">
-                        <div class="task-incomplete-icon"></div>
-                        <a href="{% url 'update_task' task.id %}">{{task}}</a>
-                    </div>
-                    <a class="delete-link" href="{% url 'delete_task' task.id %}">&#215;</a>
-                    {% endif %}
-                </div>
-                <div>
-                    {% empty %}
-                    <h3>no Items in list</h3>
-                </div>
-                {% endfor %}
-            </div>   
-        
-
+            
+            {% if request.user.is_authenticated %}
+            <!--<p>{{request.user}}</p>-->
+            <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            {% endif %}
     </div>
+
+    <div class="search-add-wrapper">
+            
+        <form action="" method="GET" style="display: flex;">
+            <input type="text" value="{{search_input}}" name="search-area">
+            <input class="button" type="submit" value="Search">
+        </form>
+        <a class="add-link" href="{% url 'create_task' %}"><i class="bi bi-clipboard2-plus"></i></a>
+        
+    </div>
+
+    <div class="task-items-wrapper overflow-auto">
+        {% for task in tasks %}
+        <div class="task-wrapper">
+            {% if task.complete %}
+            <div class="task-title">
+                <div class="task-complete-icon"></div>
+                <i><s><a href="{% url 'update_task' task.id %}">{{task}}</a></s></i>
+            </div>
+            <a class="delete-link" href="{% url 'delete_task' task.id %}">&#215;</a>
+            {% else %}
+            <div class="task-title">
+                <div class="task-incomplete-icon"></div>
+                <a href="{% url 'update_task' task.id %}">{{task}}</a>
+            </div>
+            <a class="delete-link" href="{% url 'delete_task' task.id %}">&#215;</a>
+            {% endif %}
+        </div>
+        <div>
+            {% empty %}
+            <h3 style="color: antiquewhite;">No Items found </h3>
+        </div>
+        {% endfor %}
+    </div>
+
+    
+</div>
 
 
 {% endblock content %}
