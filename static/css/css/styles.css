@@ -4,37 +4,56 @@
     box-sizing: border-box;
 }
 
-.body{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-   
-
+:root {
+    /* colores */
+    --color_body_bg: #1a1e2a;
+    --color-side: #202431;
+    --color-main: #ababab;
+    --color_title: #ffffff;
+    --color_subitlle: #dcdcdc;
+    --color-text: #cccccc;
+    --color-icon: #ffffff;
+    --color_a_hover: #d3d3d3;
+    --color-font-footer: #bfbfbf;
+    --color-card-bg: #2d3244;
 }
-
-
-
 .content{
     height: calc(100vh - 63.5px);
-    display: flex;
-    flex-direction: row;
-
-
 }
 
 .main{
-    
+    display: flex;
+    justify-content: center;
     background-color:var(--color_body_bg);
     width: 1536px;
+    
 }
 
-.cardcont{
+.contenedor-aside {
+    width: 56px;
+    background-color: var(--color-side);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.icon {
+    font-size: 22px;
+    color: var(--color-icon);
+}
+
+.icon1 {
+    margin: 10px 0;
+}
+
+.cardcont {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     /*align-content: space-around;*/
     width: 1480px;
     padding: 20px;
-    
+
 }

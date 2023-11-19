@@ -1,8 +1,10 @@
 .contant{
     font-family: 'Nunito Sans', sans-serif;
     width: 750px;
-    margin: 100px;
-    background-color: rgb(154, 156, 214);
+    height: 600px;
+  
+    
+    background-color: greenyellow;
     
 }
 
@@ -88,6 +90,7 @@ p {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    background-color: blueviolet;
 }
 
 input[type=text],

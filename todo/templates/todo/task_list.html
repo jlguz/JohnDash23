@@ -2,56 +2,33 @@
 
 {% block content %}
 
+    <div class="contant overflow-auto">
 
-<div class="content">
-    <aside class="contenedor">
-
-        <a class="icon1" href="#">
-            <i class="bi bi-person-circle icon"></i>
-        </a>
-        <a class="icon1" href="{% url 'index' %}">
-            <i class="bi bi-house-door icon"></i>
-        </a>
-        <a class="icon1" href="#" target="iframe1">
-            <i class="bi bi-layout-text-sidebar-reverse icon"></i>
-        </a>
-        <a class="icon1" href="#" target="iframe1">
-            <i class="bi bi-gear icon"></i>
-        </a>
-
-        <a class="icon1" href="{% url 'logout' %}">
-            <i class="bi bi-box-arrow-right icon"></i>
-        </a>
-
-    </aside>
-
-    <main>
-    
-        <div class="contant">
-
-            <div class="header-bar">
-                <div>
-                    <h1>Hello {{request.user|title}}</h1>
-                    <h3 style="margin:0">You have <i>{{count}}</i> incomplete task{{ count|pluralize:"s"}}</h3>
-                </div>
-
-                {% if request.user.is_authenticated %}
-                <!--<p>{{request.user}}</p>-->
-                <a href="{% url 'logout' %}">Logout</a>
-                {% else %}
-                <a href="{% url 'login' %}">Login</a>
-                {% endif %}
+            <div class="header-bar sticky-top">
+                    <div>
+                        <h1>Hello {{request.user|title}}</h1>
+                        <h3 style="margin:0">You have <i>{{count}}</i> incomplete task{{ count|pluralize:"s"}}</h3>
+                    </div>
+                
+                    {% if request.user.is_authenticated %}
+                    <!--<p>{{request.user}}</p>-->
+                    <a href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+                    {% endif %}
             </div>
-
+                
             <div class="search-add-wrapper">
-                <form action="" method="GET" style="margin-top: 20px; display: flex;">
-                    <input type="text" value="{{search_input}}" name="search-area">
-                    <input class="button" type="submit" value="Search">
-                </form>
-                <a id="add-link" href="{% url 'create_task' %}">&#x2b;</a>
+                    <form action="" method="GET" style="margin-top: 20px; display: flex;">
+                        <input type="text" value="{{search_input}}" name="search-area">
+                        <input class="button" type="submit" value="Search">
+                    </form>
+                    <a id="add-link" href="{% url 'create_task' %}">&#x2b;</a>
             </div>
+        
 
-            <div id="task-items-wrapper">
+        
+            <div class="task-items-wrapper">
                 {% for task in tasks %}
                 <div class="task-wrapper">
                     {% if task.complete %}
@@ -73,9 +50,10 @@
                     <h3>no Items in list</h3>
                 </div>
                 {% endfor %}
-            </div>
-        </div>
+            </div>   
+        
 
-    </main>
-</div>
+    </div>
+
+
 {% endblock content %}
