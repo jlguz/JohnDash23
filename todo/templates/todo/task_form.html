@@ -2,13 +2,24 @@
 
 {% block content %}
 
-<h1>Task form</h1>
-<a href="{% url 'task_list' %}">Go back</a>
+<div class="taskform-wrapper">
 
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="submit">
-</form>
+    <div class="header-bar">
+    <h1>Task Update</h1>
+    <a href="{% url 'task_list' %}">Go back <i class="bi bi-backspace"></i></a>   
+    </div>
+
+    <div class="card-body">
+        <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_table}}
+        <input class="button" type="submit" value="submit">
+        </form>
+    </div>
+
+
+</div>
+
+
 
 {% endblock %}

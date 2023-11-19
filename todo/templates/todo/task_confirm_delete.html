@@ -2,14 +2,26 @@
 
 {% block content %}
 
-<a href="{% url 'task_list' %}">Go back</a>
 
-<form method="post" action="">
+    <div class="delere-wrapper">
+        <div class="header-bar">
+            <a href="{% url 'task_list' %}">Go back <i class="bi bi-backspace"></i></a>
+        </div>
+        
+        <div class="header-bar">
+            <form method="post" action="" style="background-color: aliceblue;">
+        
+                {% csrf_token %}
+                <P>are you sure you want to delete task {{task}}?</P>
+                <input class="button" type="submit" value="delete">
+        
+            </form>
+        
+        </div>
 
-    {% csrf_token %}
-    <P>are you sure you want to delete? '{{task}}'</P>
-    <input type="submit" value="delete">
+    </div>
+    
 
-</form>
+
 
 {% endblock %}
