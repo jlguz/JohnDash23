@@ -30,9 +30,9 @@
     
     
 <!-- navbar-->
-    <nav class="navbar navbar-dark bg-dark ">
-        <div class="container-fluid">
-            <a class="navbar-brand iconbrand" href="{% url 'index' %}">Welcome back {{request.user}}</a>
+    <nav class="navbar base-nav ">
+        <div class="container-fluid ps-5">
+            <a class="navbar-brand iconbrand" style="color: var(--color-icon);" href="{% url 'index' %}">Welcome back {{request.user}}</a>
     
     
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -52,11 +52,11 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'task_list' %}">To do list <i
+                            <a class="nav-link active" style="color: var(--color-icon);" aria-current="page" href="{% url 'task_list' %}">To do list <i
                                     class="bi bi-check2-square"></i> </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'crm_home' %}">CRM <i class="bi bi-database-check"></i></a>
+                            <a class="nav-link active" style="color: var(--color-icon);" href="{% url 'crm_home' %}">CRM <i class="bi bi-database-check"></i></a>
                                 
                         </li>
                     </ul>

@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'crm/index.html')
+    return render(request, 'crm/crm_index.html')

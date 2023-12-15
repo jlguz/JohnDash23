@@ -1,0 +1,97 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+
+<div class="container text-center mt-5">
+
+    <div class="row  g-4">
+
+        <div class="col">
+            <div class="card">         
+                <div class="card-body">
+                    <h2 class="card-title">{{ city_weather.city }}, {{ city_weather.country}}</h2>
+                    <h4 class="card-title">{{ city_weather.temperature }} C</h4>
+                    <h4 class="card-title">{{ city_weather.description }} <span><img src="https://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="image"></span></h4>
+                    <h4 class="card-title">{{ city_weather.time }}</h4>
+                    
+                    
+                </div>
+
+                <div class="card-footer">
+                    <form method="post">
+                        {% csrf_token%}
+                        <div class="weather">
+                            <input type="text" name="city" placeholder="choose your city">
+                            <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
+                        </div>
+                        
+                        
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                        content.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                            content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+        </div>
+        
+    </div>
+</div>
+</div>
+
+{% endblock %}
