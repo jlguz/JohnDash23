@@ -10,12 +10,10 @@
         <div class="col">
             <div class="card">         
                 <div class="card-body">
-                    <h2 class="card-title">{{ city_weather.city }}, {{ city_weather.country}}</h2>
-                    <h4 class="card-title">{{ city_weather.temperature }} C</h4>
+                    <h3 class="card-title">{{ city_weather.city }}, {{ city_weather.country}}</h3>
+                    <h4 class="card-title">{{ city_weather.temperature }} °C</h4>
                     <h4 class="card-title">{{ city_weather.description }} <span><img src="https://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="image"></span></h4>
-                    <h4 class="card-title">{{ city_weather.time }}</h4>
-                    
-                    
+                    <h6 class="card-title">{{ city_weather.dt }}</h6>
                 </div>
 
                 <div class="card-footer">
@@ -25,37 +23,26 @@
                             <input type="text" name="city" placeholder="choose your city">
                             <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
                         </div>
-                        
-                        
                     </form>
                 </div>
-            </div>
-            
+            </div>         
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="col">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                        content. This content is a little bit longer.</p>
+                <div class="col">
+                    <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Weather</div>
+                        <div class="card-body text-secondary">
+                            <h2 class="card-title">hola</h2>
+                            <h2 class="card-title">{{ lotto_numbers.euro }}</h2>
+                            
+                   
+                        <button onclick="lottery()" class="btn btn-light"><i class="bi bi-search"></i></button>
+                
+                            
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
         <div class="col">
             <div class="card">

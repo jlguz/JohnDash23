@@ -9,42 +9,56 @@
 
                 <div class="col">
                     <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Weather</div>
-                <div class="card-body text-secondary">
-                <div class="card-body">
-                    <h2 class="card-title">{{ city_weather.city }}, {{ city_weather.country}}</h2>
-                    <h4 class="card-title">{{ city_weather.temperature }} C</h4>
-                    <h4 class="card-title">{{ city_weather.description }} <span><img
-                                src="https://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="image"></span></h4>
-                    <h4 class="card-title">{{ city_weather.time }}</h4>
-                
-                
-                </div>
-                
-                <div class="card-footer">
-                    <form method="post">
-                        {% csrf_token%}
-                        <div class="weather">
-                            <input type="text" name="city" placeholder="choose your city">
-                            <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
+                        <div class="card-header">Weather</div>
+                        <div class="card-body text-secondary">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ city_weather.city }}, {{ city_weather.country}}</h3>
+                                <h4 class="card-title">{{ city_weather.temperature }} °C</h4>
+                                <h4 class="card-title">{{ city_weather.description }} <span><img
+                                            src="https://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="image"></span></h4>
+                                <h6 class="card-title">{{ city_weather.dt }}</h6>
+                                
+                            </div>
+                            
+                            <div class="card-footer">
+                                <form method="post">
+                                    {% csrf_token%}
+                                    <div class="weather">
+                                        <input type="text" name="city" placeholder="choose your city">
+                                        <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                
-                
-                    </form>
-                </div>
-                </div>
                     </div>
                 </div>
 
                 <div class="col">
-                    <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-transparent border-success">News</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's
-                            content.</p>
-                    </div>
+                    <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Lottery</div>
+                        <div class="card-body text-secondary">
+                            <div >
+                                <p style="background-color: aquamarine;" >Lotto Wed and Saturday</p>
+                                <h5 style="background-color: aqua; border:50px" class="card-title"> {{ lotto_numbers.lotto }}</h5>
+                            </div>
+                            <div>
+                                <p>Euro Tuesday and Friday</p>
+                                <h5 style="border-color: blue; border:5px" class="card-title">{{ lotto_numbers.euro }}</h5>
+                            </div>
+                            <div>
+                                <p>Set for life Mon and Thurs</p>
+                                <h5 class="card-title">{{ lotto_numbers.set }}</h5>
+                            </div>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <form method="post">
+                                {% csrf_token%}
+                                <div class="weather">
+                                    <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
