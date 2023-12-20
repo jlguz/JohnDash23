@@ -4,12 +4,38 @@ import datetime, random
 from django.shortcuts import render
 
 
-def home(request):
+    
 
+def home(request):
+            
+     
       if request.method == 'POST':
 
             city = request.POST['city'].title()
             weather_date = my_weather(city)
+
+            if weather_date is None:
+
+                  city = 'london'
+                  weather_date = my_weather(city)
+
+                  city_weather = {
+                        'city': city,
+                        'temperature': round(weather_date['main']['temp']),
+                        'description': weather_date['weather'][0]['description'],
+                        'icon': weather_date['weather'][0]['icon'],
+                        'country': weather_date['sys']['country'],
+                        'dt': datetime.datetime.fromtimestamp(weather_date['dt']),
+                        }
+                  
+                  print(weather_date)
+
+                  context = {'city_weather': city_weather, }
+
+                  return render(request, 'home/index.html', context)
+            
+
+
             
             if weather_date is not None:
                   city_weather = {
@@ -25,11 +51,29 @@ def home(request):
 
                   context = {'city_weather': city_weather, }
 
-                  return render(request, 'home/weather.html', context)
+                  return render(request, 'home/index.html', context)
 
+
+      if request:
+
+
+            city = 'london'
+            weather_date = my_weather(city)
+
+            city_weather = {
+                  'city': city,
+                  'temperature': round(weather_date['main']['temp']),
+                  'description': weather_date['weather'][0]['description'],
+                        'icon': weather_date['weather'][0]['icon'],
+                        'country': weather_date['sys']['country'],
+                        'dt': datetime.datetime.fromtimestamp(weather_date['dt']),
+                  }
             
-      return render(request, 'home/weather.html')
+            context = {'city_weather': city_weather, }
 
+            return render(request, 'home/index.html', context)
+            
+      return render(request, 'home/index.html')
 
 
 
@@ -50,49 +94,115 @@ def my_weather(city):
 
 
 def lottery(request):
-
-      if request.method == 'POST':
-
-            lotto_num = list(range(1, 60))
-            lotto = random.sample(lotto_num, k=6)
-            print(lotto)
+            
+      city = 'london'
+      weather_date = my_weather(city)
 
 
-            euro_num = list(range(1, 51))
-            starts = list(range(1, 13))
+      city_weather = {
+                  'city': city,
+                  'temperature': round(weather_date['main']['temp']),
+                  'description': weather_date['weather'][0]['description'],
+                        'icon': weather_date['weather'][0]['icon'],
+                        'country': weather_date['sys']['country'],
+                        'dt': datetime.datetime.fromtimestamp(weather_date['dt']),
+                  }
 
-            euro_numbers = random.sample(euro_num, k=5)
-            euro_starts = random.sample(starts, k=2)
+      print(weather_date)
 
-            euromillions = f"{euro_numbers}{euro_starts}"
-
-            print(euromillions)
-
-            set_num = list(range(1, 51))
-            life_num = list(range(1, 11))
-
-            set_numbers = random.sample(set_num, k=5)
-            life_starts = random.sample(life_num, k=1)
-
-            setforlife = f'{set_numbers}{life_starts}'
-
-            print(setforlife)
+      lotto_num = list(range(1, 60))
+      lotto = random.sample(lotto_num, k=6)
+      print(lotto)
 
 
+      euro_num = list(range(1, 51))
+      starts = list(range(1, 13))
 
+      euro_numbers = random.sample(euro_num, k=5)
+      euro_starts = random.sample(starts, k=2)
 
+      euromillions = f"{euro_numbers}{euro_starts}"
 
-            lotto_numbers = {
+      print(euromillions)
+
+      set_num = list(range(1, 51))
+      life_num = list(range(1, 11))
+
+      set_numbers = random.sample(set_num, k=5)
+      life_starts = random.sample(life_num, k=1)
+
+      setforlife = f'{set_numbers}{life_starts}'
+
+      print(setforlife)
+
+      lotto_numbers = {
                         'lotto': lotto,
                         'euro': euromillions,
                         'set' : setforlife
                   }
 
-            context = {'lotto_numbers':lotto_numbers}
+      context = {'lotto_numbers':lotto_numbers,
+                  'city_weather': city_weather, }
 
-            return render(request, 'home/index.html', context)
+      return render(request, 'home/lotto.html', context)
       
-      return render(request, 'home/index.html')
+
+def lottery1():
+
+      city = 'london'
+      weather_date = my_weather(city)
+
+      city_weather = {
+            'city': city,
+            'temperature': round(weather_date['main']['temp']),
+            'description': weather_date['weather'][0]['description'],
+            'icon': weather_date['weather'][0]['icon'],
+            'country': weather_date['sys']['country'],
+            'dt': datetime.datetime.fromtimestamp(weather_date['dt']),
+      }
+
+      print(weather_date)
+
+      lotto_num = list(range(1, 60))
+      lotto = random.sample(lotto_num, k=6)
+      print(lotto)
+
+      euro_num = list(range(1, 51))
+      starts = list(range(1, 13))
+
+      euro_numbers = random.sample(euro_num, k=5)
+      euro_starts = random.sample(starts, k=2)
+
+      euromillions = f"{euro_numbers}{euro_starts}"
+
+      print(euromillions)
+
+      set_num = list(range(1, 51))
+      life_num = list(range(1, 11))
+
+      set_numbers = random.sample(set_num, k=5)
+      life_starts = random.sample(life_num, k=1)
+
+      setforlife = f'{set_numbers}{life_starts}'
+
+      print(setforlife)
+
+      lotto_numbers = {
+            'lotto': lotto,
+            'euro': euromillions,
+            'set': setforlife
+      }
+
+      context = {'lotto_numbers': lotto_numbers,
+                  'city_weather': city_weather, }
+
+      return render('home/index.html', context)
+
+
+
+
+
+      
 
 
 

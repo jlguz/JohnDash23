@@ -17,13 +17,14 @@
                 </div>
 
                 <div class="card-footer">
-                    <form method="post">
+                 <!--   <form method="POST">
                         {% csrf_token%}
                         <div class="weather">
                             <input type="text" name="city" placeholder="choose your city">
                             <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
                         </div>
-                    </form>
+                    </form> -->
+                    <button onclick="location.href='{% url 'index' %}'" name='mybtn2'>click</button>
                 </div>
             </div>         
         </div>
@@ -33,12 +34,36 @@
                     <div class="card border-secondary mb-3" style="max-width: 18rem;">
                         <div class="card-header">Weather</div>
                         <div class="card-body text-secondary">
-                            <h2 class="card-title">hola</h2>
-                            <h2 class="card-title">{{ lotto_numbers.euro }}</h2>
+                            <div>
+                                <p style="background-color: aquamarine;">Lotto Wed and Saturday</p>
+                                <h5 style="background-color: aqua; border:50px" class="card-title"> {{ lotto_numbers.lotto }}</h5>
+                            </div>
+                            <div>
+                                <p>Euro Tuesday and Friday</p>
+                                <h5 style="border-color: blue; border:5px" class="card-title">{{ lotto_numbers.euro }}</h5>
+                            </div>
+                            <div>
+                                <p>Set for life Mon and Thurs</p>
+                                <h5 class="card-title">{{ lotto_numbers.set }}</h5>
+                            </div>
                             
                    
-                        <button onclick="lottery()" class="btn btn-light"><i class="bi bi-search"></i></button>
+                    <!--    <form method="post">
+                            {% csrf_token%}
+                            <div class="weather">
+                                <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
+                            </div>
+                        </form> -->
                 
+                        <button onclick="location.href='{% url 'lottery' %}'" name='mybtn2'>click</button>
+
+                            {% if contex %}
+
+                            {{ contex }}
+
+                            {%endif %}
+
+
                             
                         </div>
                     </div>
