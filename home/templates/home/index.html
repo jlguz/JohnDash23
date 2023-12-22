@@ -4,34 +4,32 @@
 
     {% if user.is_authenticated %}
 
-        <div class="container text-center mt-5">
+        <div class="container text-center mt-5 container_card">
             <div class="row">
 
-                <div class="col">
-                    <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Weather</div>
-                        <div class="card-body text-secondary">
-                            <div class="card-body">
-                                <h3 class="card-title">{{ city_weather.city }}, {{ city_weather.country}}</h3>
-                                <h4 class="card-title">{{ city_weather.temperature }} °C</h4>
-                                <h4 class="card-title">{{ city_weather.description }} <span><img
-                                            src="https://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="image"></span></h4>
-                                <h6 class="card-title">{{ city_weather.dt }}</h6>
-                                
-                            </div>
-                            
-                            <div class="card-footer">
-                                <form method="post">
-                                    {% csrf_token%}
-                                    <div class="weather">
-                                        <input type="text" name="city" placeholder="choose your city">
-                                        <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
-                                    </div>
-                                </form>
+                        <div class="col">
+                            <div style="background-color: cyan;" class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ city_weather.city }}, {{ city_weather.country}}</h3>
+                                    <h4 class="card-title">{{ city_weather.temperature }} °C <span><img src="https://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="image"></span></h4>
+                                    <h4 class="card-title">{{ city_weather.description }}</h4>
+                                    <h6 class="card-title">{{ city_weather.dt }}</h6>
+                                </div>
+                        
+                                <div class="mainfooter">
+                                    <form method="POST" style="width: 170px; height: 50px">
+                                        {% csrf_token%}
+                                        <div class="footer" >
+                                            <input type="text" name="city" placeholder="City" style=" height: 40px">
+                                            <button type="submit" class="btn btn-outline-dark" style="height: 40px;"><i class="bi bi-search"></i></button>
+                                        </div>
+                                    </form>
+                        
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+
+                
 
                 <div class="col">
                     <div class="card border-secondary mb-3" style="max-width: 18rem;">
@@ -52,19 +50,11 @@
                             
                         </div>
                         <div class="card-footer">
-                        <!--    <form method="post">
-                                {% csrf_token%}
-                                <div class="weather">
-                                    <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
-                                </div>
-                            </form> -->
-
-                            <button onclick="location.href='{% url 'lottery' %}'" name='mybtn2'>click</button>
-                            <button onclick="lottery1()" name='mybtn2'>click 2</button>
-                         
                             
+                            <button onclick="location.href='{% url 'lottery' %}'" name='mybtn2'>click</button>
+                            <button onclick="callPythonFunction()" name='mybtn2'>click 2</button>
 
-                         <!--   {% if contex %}
+                        <!--   {% if contex %}
                             
                             {{ contex }}
                             
@@ -76,88 +66,61 @@
                     </div>
                 </div>
 
-                <div class="col">
-                    <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Lotery</div>
-                <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                </div>
-                    </div>
-                </div>
 
-                <div class="col">
-                    <div class="card border-success mb-3" style="max-width: 18rem;">
-                <div class="card-header bg-transparent border-success">Header</div>
-                <div class="card-body text-success">
-                    <h5 class="card-title">Success card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                </div>
-                <div class="card-footer bg-transparent border-success">Footer</div>
+
+
+        <div class="col">
+            <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Weather</div>
+                <div class="card-body text-secondary">
+                    <div>
+                        <p style="background-color: aquamarine;">Lotto Wed and Saturday</p>
+                        <h5 class="card-title"> {{ lotto_numbers.lotto }}</h5>
                     </div>
+                    <div>
+                        <p style="background-color: aquamarine;">Euro Tuesday and Friday</p>
+                        <h5 class="card-title">{{ lotto_numbers.euro }}</h5>
+                    </div>
+                    <div>
+                        <p style="background-color: aquamarine;">Set for life Mon and Thurs</p>
+                        <h5 class="card-title">{{ lotto_numbers.set }}</h5>
+                    </div>
+        
+        
+                    <!--    <form method="post">
+                                    {% csrf_token%}
+                                    <div class="weather">
+                                        <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
+                                    </div>
+                                    </form> -->
+        
+                    <button class="btn btn-outline-success" onclick="location.href='{% url 'lottery' %}'" name='mybtn2'>Try your
+                        luck</button>
+        
+                    {% if contex %}
+        
+                    {{ contex }}
+        
+                    {%endif %}
+        
+        
+        
                 </div>
             </div>
-
-            <div class="row">
-                        
-                            <div class="col">
-                                <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                                    <div class="card-header">Weather</div>
-                                    <div class="card-body text-secondary">
-                                        <h5 class="card-title">Secondary card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                            card's
-                                            content.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <div class="col">
-                                <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-                                    <div class="card-header bg-transparent border-success">News</div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Primary card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                            card's
-                                            content.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <div class="col">
-                                <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-                                    <div class="card-header">Lotery</div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Primary card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                            card's
-                                            content.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <div class="col">
-                                <div class="card border-success mb-3" style="max-width: 18rem;">
-                                    <div class="card-header bg-transparent border-success">Header</div>
-                                    <div class="card-body text-success">
-                                        <h5 class="card-title">Success card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                            card's
-                                            content.</p>
-                                    </div>
-                                    <div class="card-footer bg-transparent border-success">Footer</div>
-                                </div>
-                            </div>
-            </div>
-
-            
         </div>
 
-
+                <div class="col">
+                    <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Lotery</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Primary card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's
+                                content.</p>
+                        </div>
+                    </div>
+                </div>
+    
 
     {% else %}
         <a class="icon1" href="{% url 'login' %}"><i class="bi bi-box-arrow-right icon"></i>
@@ -167,3 +130,12 @@
 {% endblock %}
 
 
+<script>
+
+    function callPythonFunction() {
+            fetch('/lottery')
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error(error));
+        }
+</script>

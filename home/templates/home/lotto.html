@@ -8,7 +8,7 @@
     <div class="row  g-4">
 
         <div class="col">
-            <div class="card">         
+            <div  style="background-color: cyan;" class="card">         
                 <div class="card-body">
                     <h3 class="card-title">{{ city_weather.city }}, {{ city_weather.country}}</h3>
                     <h4 class="card-title">{{ city_weather.temperature }} °C</h4>
@@ -24,38 +24,38 @@
                             <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
                         </div>
                     </form> -->
-                    <button onclick="location.href='{% url 'index' %}'" name='mybtn2'>click</button>
+                    <button class="btn btn btn-outline-primary" onclick="location.href='{% url 'index' %}'" name='mybtn2'>click</button>
                 </div>
             </div>         
         </div>
 
 
-                <div class="col">
+        <div class="col">
                     <div class="card border-secondary mb-3" style="max-width: 18rem;">
                         <div class="card-header">Weather</div>
                         <div class="card-body text-secondary">
                             <div>
                                 <p style="background-color: aquamarine;">Lotto Wed and Saturday</p>
-                                <h5 style="background-color: aqua; border:50px" class="card-title"> {{ lotto_numbers.lotto }}</h5>
+                                <h5 class="card-title"> {{ lotto_numbers.lotto }}</h5>
                             </div>
                             <div>
-                                <p>Euro Tuesday and Friday</p>
-                                <h5 style="border-color: blue; border:5px" class="card-title">{{ lotto_numbers.euro }}</h5>
+                                <p style="background-color: aquamarine;">Euro Tuesday and Friday</p>
+                                <h5 class="card-title">{{ lotto_numbers.euro }}</h5>
                             </div>
                             <div>
-                                <p>Set for life Mon and Thurs</p>
+                                <p style="background-color: aquamarine;">Set for life Mon and Thurs</p>
                                 <h5 class="card-title">{{ lotto_numbers.set }}</h5>
                             </div>
                             
                    
-                    <!--    <form method="post">
+                            <!--    <form method="post">
                             {% csrf_token%}
                             <div class="weather">
                                 <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
                             </div>
-                        </form> -->
+                            </form> -->
                 
-                        <button onclick="location.href='{% url 'lottery' %}'" name='mybtn2'>click</button>
+                            <button class="btn btn-outline-success"  onclick="location.href='{% url 'lottery' %}'" name='mybtn2'>Try your luck</button>
 
                             {% if contex %}
 
@@ -67,7 +67,7 @@
                             
                         </div>
                     </div>
-                </div>
+        </div>
 
         <div class="col">
             <div class="card">
@@ -104,6 +104,6 @@
         
     </div>
 </div>
-</div>
+
 
 {% endblock %}

@@ -7,6 +7,10 @@ from django.shortcuts import render
     
 
 def home(request):
+
+
+
+      
             
      
       if request.method == 'POST':
@@ -34,9 +38,6 @@ def home(request):
 
                   return render(request, 'home/index.html', context)
             
-
-
-            
             if weather_date is not None:
                   city_weather = {
                         'city': city,
@@ -52,10 +53,7 @@ def home(request):
                   context = {'city_weather': city_weather, }
 
                   return render(request, 'home/index.html', context)
-
-
       if request:
-
 
             city = 'london'
             weather_date = my_weather(city)
@@ -64,15 +62,15 @@ def home(request):
                   'city': city,
                   'temperature': round(weather_date['main']['temp']),
                   'description': weather_date['weather'][0]['description'],
-                        'icon': weather_date['weather'][0]['icon'],
-                        'country': weather_date['sys']['country'],
-                        'dt': datetime.datetime.fromtimestamp(weather_date['dt']),
-                  }
-            
+                  'icon': weather_date['weather'][0]['icon'],
+                  'country': weather_date['sys']['country'],
+                  'dt': datetime.datetime.fromtimestamp(weather_date['dt']),
+            }
+
             context = {'city_weather': city_weather, }
 
             return render(request, 'home/index.html', context)
-            
+
       return render(request, 'home/index.html')
 
 
@@ -197,7 +195,6 @@ def lottery1():
                   'city_weather': city_weather, }
 
       return render('home/index.html', context)
-
 
 
 
